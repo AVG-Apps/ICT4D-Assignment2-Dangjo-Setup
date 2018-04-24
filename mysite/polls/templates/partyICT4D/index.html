@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if guest_list =! [] %}
+    <ul>
+    {% for name in guest_list %}
+        <li><a href="{% url 'detail' guest_list.id %}">{{ guest_list.text }}</a></li>    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

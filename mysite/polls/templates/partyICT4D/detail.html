@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<h1>Please Enter your Name</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'partyICT4D:person' quest_list.id %}" method="post">
+{% csrf_token %}
+{% for name in quest_list.all %}
+    <label for="guest_list{{ forloop.counter }}">{{ name.text }}</label><br />
+    <input type="text" name="person" id="guest_list{{ forloop.counter }}" value="please enter your name" />
+{% endfor %}
+<input type="submit" value="Enter" />
+</form>

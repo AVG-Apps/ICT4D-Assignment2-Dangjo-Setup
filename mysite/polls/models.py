@@ -4,8 +4,6 @@ from django.db import models
 from django.utils import timezone
 
 
-
-
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -29,3 +27,15 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
+######################
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
+class Guest_list(models.Model):
+    list_quests = []
+
+    def __str__(self):
+        return self.list_quests

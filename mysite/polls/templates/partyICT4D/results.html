@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<h1>Quests of the Party ICT4D Party</h1>
+
+<ul>
+{% for name in quest_list.all %}
+    <li>{{ name.text }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'partyICT4D:detail' quest_list.id %}">Add someone else?</a>
